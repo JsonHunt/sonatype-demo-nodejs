@@ -1,0 +1,16 @@
+{
+  "name": "numbers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "coffee index.coffee"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "coffeescript": "^2.3.2",
+    "mocha": "^6.0.2"
+  }
+}
