@@ -1,4 +1,4 @@
-##Sonatype coding assignment for Lukasz Korzeniowski
+## Sonatype coding assignment for Lukasz Korzeniowski
 
 Setup:
 
