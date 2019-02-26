@@ -1,4 +1,4 @@
-numbers
+Sonatype coding assignment for Lukasz Korzeniowski
 
 Setup:
 npm install
