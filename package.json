@@ -1,11 +1,11 @@
 {
-  "name": "coding assignment for Sonatech",
+  "name": "coding-assignment-for-Sonatech",
   "version": "1.0.0",
   "description": "Convert numbers into equivalent words in English",
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "start": "coffee index.coffee"
+    "start": "node index.js"
   },
   "author": "Lukasz Korzeniowski",
   "devDependencies": {
