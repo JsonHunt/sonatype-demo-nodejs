@@ -11,6 +11,9 @@
       assert.equal(converter.validateInteger('23.11'), false);
       assert.equal(converter.validateInteger(''), false);
       assert.equal(converter.validateInteger('0'), true);
+      assert.equal(converter.validateInteger('-0'), false);
+      assert.equal(converter.validateInteger('00'), false);
+      assert.equal(converter.validateInteger('22056776543455097645624346540'), true);
       assert.equal(converter.validateInteger('-50'), true);
       return assert.equal(converter.validateInteger('000x0!@'), false);
     });
@@ -87,6 +90,9 @@
       });
     });
     return describe('translate', function() {
+      it('should translate zero', function() {
+        return assert.equal(converter.translate('0'), 'Zero');
+      });
       it('should capitalize first letter', function() {
         return assert.equal(converter.translate('101'), 'One hundred and one');
       });

@@ -6,6 +6,9 @@ describe 'English number translator', ->
     assert.equal converter.validateInteger('23.11'), false
     assert.equal converter.validateInteger(''), false
     assert.equal converter.validateInteger('0'), true
+    assert.equal converter.validateInteger('-0'), false
+    assert.equal converter.validateInteger('00'), false
+    assert.equal converter.validateInteger('22056776543455097645624346540'), true
     assert.equal converter.validateInteger('-50'), true
     assert.equal converter.validateInteger('000x0!@'), false
 
@@ -75,6 +78,9 @@ describe 'English number translator', ->
       assert.equal converter.translatePart('500', useAnd), 'five hundred'
 
   describe 'translate', ->
+    it 'should translate zero', ->
+      assert.equal converter.translate('0'), 'Zero'
+
     it 'should capitalize first letter', ->
       assert.equal converter.translate('101'), 'One hundred and one'
 

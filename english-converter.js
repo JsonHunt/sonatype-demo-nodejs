@@ -35,7 +35,7 @@
       }
     },
     validateInteger: function(str) {
-      return /^-?\d+$/.test(str);
+      return /^-?[123456789]\d*$/.test(str) || /^0$/.test(str);
     },
     // getParts method breaks up the number into three-digit parts
     getParts: function(str) {
@@ -95,6 +95,9 @@
     // It handles minus sign, concatenation of parts and capitalization of the first letter.
     translate: function(number) {
       var isNegative, isValid, partText, parts, text, useAnd;
+      if (number === '0') {
+        return capitalize(words['0']);
+      }
       text = "";
       if ((number === void 0) || (number.length === 0)) {
         throw new Error("Missing parameter. Integer is required");

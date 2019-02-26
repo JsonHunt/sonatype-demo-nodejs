@@ -11,7 +11,7 @@ removeEnd = (str, howMany)-> str.substr 0, str.length-howMany
 
 module.exports =
   addSpace: (str)-> if (str.length > 0) and (str[str.length-1] isnt ' ') then return str + ' ' else return str
-  validateInteger: (str)-> /^-?\d+$/.test str
+  validateInteger: (str)-> /^-?[123456789]\d*$/.test(str) or /^0$/.test(str)
 
   # getParts method breaks up the number into three-digit parts
   getParts: (str)->
@@ -65,6 +65,9 @@ module.exports =
   # Translate method accepts an integer (positive or negative) as an input and produces English language equivalent.
   # It handles minus sign, concatenation of parts and capitalization of the first letter.
   translate: (number)->
+    if number is '0'
+      return capitalize words['0']
+
     text = ""
     if (number is undefined) or (number.length is 0)
       throw new Error("Missing parameter. Integer is required")
