@@ -60,7 +60,7 @@ module.exports =
     if ones
       text = @addSpace(text) + words[ones]
 
-    return text
+    return text.trim()
 
   # Translate method accepts an integer (positive or negative) as an input and produces English language equivalent.
   # It handles minus sign, concatenation of parts and capitalization of the first letter.
@@ -75,13 +75,17 @@ module.exports =
       if number.indexOf("-") is 0
         isNegative = true
         number = number.substr(1)
+      if number.length > 30
+        throw new Error('Invalid parameter. Number must be smaller than 1 nonillion')
       parts = @getParts(number)
       while parts.length > 0
         useAnd = parts.length is 1
-        text += @translatePart parts[0], useAnd
+        partText = @translatePart parts[0], useAnd
+        if partText.length > 0
+          text = @addSpace(text) + partText
         parts.shift()
-        if parts.length > 0
-          text += ' ' + words.bigNumbers[parts.length] + ' '
+        if parts.length > 0 and partText.length > 0
+          text = @addSpace(text) + words.bigNumbers[parts.length]
 
       if isNegative
         text = words['-'] + ' ' + text

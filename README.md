@@ -16,6 +16,9 @@ Run:
 
 npm run start 3213456
 
+or with commas:
+
+npm run start 123,432,345,543
 
 To execute with negative number, use
 

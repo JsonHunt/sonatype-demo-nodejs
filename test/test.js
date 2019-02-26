@@ -82,7 +82,7 @@
         assert.equal(converter.translatePart('101', useAnd), 'one hundred and one');
         assert.equal(converter.translatePart('111', useAnd), 'one hundred and eleven');
         assert.equal(converter.translatePart('130', useAnd), 'one hundred and thirty');
-        assert.equal(converter.translatePart('135', useAnd), 'one hundred and thirty five');
+        assert.equal(converter.translatePart('935', useAnd), 'nine hundred and thirty five');
         return assert.equal(converter.translatePart('500', useAnd), 'five hundred');
       });
     });
@@ -93,7 +93,7 @@
       it('should add word "negative" if number has minus sign', function() {
         return assert.equal(converter.translate('-53465'), 'Negative fifty three thousand four hundred and sixty five');
       });
-      return it('should join parts with correct numbers', function() {
+      it('should join parts with correct numbers', function() {
         assert.equal(converter.translate('101000'), 'One hundred one thousand');
         assert.equal(converter.translate('101001'), 'One hundred one thousand and one');
         assert.equal(converter.translate('120567'), 'One hundred twenty thousand five hundred and sixty seven');
@@ -103,6 +103,9 @@
         assert.equal(converter.translate('1001001000'), 'One billion one million one thousand');
         assert.equal(converter.translate('1001001001000'), 'One trillion one billion one million one thousand');
         return assert.equal(converter.translate('1001001001001000'), 'One quadrillion one trillion one billion one million one thousand');
+      });
+      return it('should correctly handle empty parts', function() {
+        return assert.equal(converter.translate('1000000000'), 'One billion');
       });
     });
   });

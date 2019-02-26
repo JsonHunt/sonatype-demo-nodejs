@@ -71,7 +71,7 @@ describe 'English number translator', ->
       assert.equal converter.translatePart('101', useAnd), 'one hundred and one'
       assert.equal converter.translatePart('111', useAnd), 'one hundred and eleven'
       assert.equal converter.translatePart('130', useAnd), 'one hundred and thirty'
-      assert.equal converter.translatePart('135', useAnd), 'one hundred and thirty five'
+      assert.equal converter.translatePart('935', useAnd), 'nine hundred and thirty five'
       assert.equal converter.translatePart('500', useAnd), 'five hundred'
 
   describe 'translate', ->
@@ -91,3 +91,6 @@ describe 'English number translator', ->
       assert.equal converter.translate('1001001000'), 'One billion one million one thousand'
       assert.equal converter.translate('1001001001000'), 'One trillion one billion one million one thousand'
       assert.equal converter.translate('1001001001001000'), 'One quadrillion one trillion one billion one million one thousand'
+
+    it 'should correctly handle empty parts', ->
+      assert.equal converter.translate('1000000000'), 'One billion'
