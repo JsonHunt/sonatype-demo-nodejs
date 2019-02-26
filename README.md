@@ -2,7 +2,7 @@ numbers
 
 Setup:
 npm install
-npm install mocha -g
+npm install coffeescript mocha -g
 
 Tests:
 mocha

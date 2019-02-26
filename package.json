@@ -1,14 +1,13 @@
 {
-  "name": "numbers",
+  "name": "coding assignment for Sonatech",
   "version": "1.0.0",
-  "description": "",
+  "description": "Convert numbers into equivalent words in English",
   "main": "index.js",
   "scripts": {
     "test": "mocha",
     "start": "coffee index.coffee"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Lukasz Korzeniowski",
   "devDependencies": {
     "coffeescript": "^2.3.2",
     "mocha": "^6.0.2"
