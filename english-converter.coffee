@@ -1,3 +1,6 @@
+# This module is used to provide conversion of numbers into English language form.
+# Conversion is done in translate method. All other methods are 'private'
+
 words = require './words'
 
 capitalize = (str)-> str.substr(0,1).toUpperCase() + str.substr(1)
@@ -9,6 +12,20 @@ removeEnd = (str, howMany)-> str.substr 0, str.length-howMany
 module.exports =
   addSpace: (str)-> if (str.length > 0) and (str[str.length-1] isnt ' ') then return str + ' ' else return str
   validateInteger: (str)-> /^-?\d+$/.test str
+
+  # getParts method breaks up the number into three-digit parts
+  getParts: (str)->
+    parts = []
+    while str.length > 2
+      parts.push peekEnd(str,3)
+      str = removeEnd(str,3)
+    if str.length > 0
+      parts.push str
+    parts.reverse()
+    parts
+
+  # translatePart method translates individual three-digit parts of a potentially larger number
+  # useAnd parameter tells the method whether or not to generate 'and' after hundreds part
   translatePart: (part, useAnd)->
     while part[0] is '0'
       part = removeStart(part, 1)
@@ -45,16 +62,8 @@ module.exports =
 
     return text
 
-  getParts: (str)->
-    parts = []
-    while str.length > 2
-      parts.push peekEnd(str,3)
-      str = removeEnd(str,3)
-    if str.length > 0
-      parts.push str
-    parts.reverse()
-    parts
-
+  # Translate method accepts an integer (positive or negative) as an input and produces English language equivalent.
+  # It handles minus sign, concatenation of parts and capitalization of the first letter.
   translate: (number)->
     text = ""
     if (number is undefined) or (number.length is 0)

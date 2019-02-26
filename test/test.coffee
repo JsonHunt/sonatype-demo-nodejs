@@ -3,7 +3,6 @@ converter = require '../english-converter'
 
 describe 'English number translator', ->
   it 'should validate input', ->
-    isValid =
     assert.equal converter.validateInteger('23.11'), false
     assert.equal converter.validateInteger(''), false
     assert.equal converter.validateInteger('0'), true
