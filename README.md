@@ -4,8 +4,8 @@ Setup:
 npm install
 npm install coffeescript mocha -g
 
-Tests:
-mocha
+Mocha unit tests:
+npm test
 
 Run:
 npm run start 3213456
