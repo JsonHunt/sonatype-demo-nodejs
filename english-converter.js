@@ -115,7 +115,7 @@
         }
         parts = this.getParts(number);
         while (parts.length > 0) {
-          useAnd = parts.length === 1;
+          useAnd = (number.length > 2) && parts.length === 1;
           partText = this.translatePart(parts[0], useAnd);
           if (partText.length > 0) {
             text = this.addSpace(text) + partText;

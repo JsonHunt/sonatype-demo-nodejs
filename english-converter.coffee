@@ -82,7 +82,7 @@ module.exports =
         throw new Error('Invalid parameter. Number must be smaller than 1 nonillion')
       parts = @getParts(number)
       while parts.length > 0
-        useAnd = parts.length is 1
+        useAnd = (number.length > 2) and parts.length is 1
         partText = @translatePart parts[0], useAnd
         if partText.length > 0
           text = @addSpace(text) + partText

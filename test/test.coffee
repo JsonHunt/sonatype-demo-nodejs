@@ -81,6 +81,11 @@ describe 'English number translator', ->
     it 'should translate zero', ->
       assert.equal converter.translate('0'), 'Zero'
 
+    it 'should translate small numbers', ->
+      assert.equal converter.translate('1'), 'One'
+      assert.equal converter.translate('12'), 'Twelve'
+      assert.equal converter.translate('45'), 'Forty five'
+
     it 'should capitalize first letter', ->
       assert.equal converter.translate('101'), 'One hundred and one'
 

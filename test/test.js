@@ -93,6 +93,11 @@
       it('should translate zero', function() {
         return assert.equal(converter.translate('0'), 'Zero');
       });
+      it('should translate small numbers', function() {
+        assert.equal(converter.translate('1'), 'One');
+        assert.equal(converter.translate('12'), 'Twelve');
+        return assert.equal(converter.translate('45'), 'Forty five');
+      });
       it('should capitalize first letter', function() {
         return assert.equal(converter.translate('101'), 'One hundred and one');
       });
